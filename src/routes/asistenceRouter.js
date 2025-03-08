@@ -1,17 +1,12 @@
-require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const cors = require("cors");
+const asistenceController = require("../controllers/asistenceController");
 
-router.post("/asistencias", (req, res) => {});
-
-router.get("/asistencias", (req, res) => {});
-
-router.get("/asistencias/:id", (req, res) => {});
-
-router.put("/asistencias/:id", (req, res) => {});
-
-router.delete("/asistencias/:id", (req, res) => {});
+router.post("/asistencias", asistenceController.create);
+router.get("/asistencias", asistenceController.findAll);
+router.get("/asistencias/:id", asistenceController.findOne);
+router.get("/asistencias/usuario/:id", asistenceController.findByUserId);
+router.put("/asistencias/:id", asistenceController.update);
+router.delete("/asistencias/:id", asistenceController.deleteOne);
 
 module.exports = router;

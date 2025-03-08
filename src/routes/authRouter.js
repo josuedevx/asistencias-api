@@ -1,8 +1,6 @@
-require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const cors = require("cors");
+const authController = require("../controllers/authController");
 
 router.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", req.header("origin"));
@@ -20,9 +18,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.post("/login", (req, res) => {});
-
-router.post("/logout", (req, res) => {});
-
+router.post("/login", authController.login);
+router.post("/logout", authController.logout);
 
 module.exports = router;

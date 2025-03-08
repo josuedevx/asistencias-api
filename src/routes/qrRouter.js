@@ -1,11 +1,7 @@
-require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-const path = require("path");
-const cors = require("cors");
+const qrController = require("../controllers/qrController");
 
-router.get("/qrcode/:usuarioId", (req, res) => {
-    res.send("qr code");
-});
+router.get("/qrcode/:usuarioId", qrController.create);
 
 module.exports = router;
